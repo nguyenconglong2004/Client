@@ -1,6 +1,6 @@
 ﻿#include "CLIENT.h"
 
-CLIENT::CLIENT(QWidget *parent)
+Client::Client(QWidget *parent)
     : QMainWindow(parent)
 {
 
@@ -11,16 +11,16 @@ CLIENT::CLIENT(QWidget *parent)
     if (x == 2) ui.label_c2->setText("False");
     if (x == 3) ui.label_c3->setText("False");
     mouseUpdateTimer = new QTimer(this);
-    connect(mouseUpdateTimer, &QTimer::timeout, this, &CLIENT::updateMousePosition);
+    connect(mouseUpdateTimer, &QTimer::timeout, this, &Client::updateMousePosition);
     mouseUpdateTimer->start(10); // Cập nhật mỗi 100ms
 
 }
 
-CLIENT::~CLIENT()
+Client::~Client()
 {
     sk.break_up();
 }
-void CLIENT::keyPressEvent(QKeyEvent* event)
+void Client::keyPressEvent(QKeyEvent* event)
 {
     //if (event->key() == Qt::Key_A) {
     //    INPUT keyInput;
@@ -108,7 +108,7 @@ void CLIENT::keyPressEvent(QKeyEvent* event)
 //    }
 //    sk.send_Event(KEY_UP, k, 0);
 //}
-void CLIENT::updateMousePosition()
+void Client::updateMousePosition()
 {
 
     QPoint pos = QCursor::pos();
@@ -121,7 +121,7 @@ void CLIENT::updateMousePosition()
 //    //sk.send_Event(0, pos.x(), pos.y());
 //    ui.label_move->setText("Mouse Move: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
 //}
-void CLIENT::mousePressEvent(QMouseEvent* event)
+void Client::mousePressEvent(QMouseEvent* event)
 {
     QPoint pos = QCursor::pos();
     if (event->button() == Qt::LeftButton) {
@@ -133,7 +133,7 @@ void CLIENT::mousePressEvent(QMouseEvent* event)
         ui.label_press->setText("Mouse Press R: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
     }
 }
-void CLIENT::mouseReleaseEvent(QMouseEvent* event) {
+void Client::mouseReleaseEvent(QMouseEvent* event) {
     QPoint pos = QCursor::pos();
     if (event->button() == Qt::LeftButton) {
         sk.send_Event(3, pos.x(), pos.y());
@@ -144,7 +144,7 @@ void CLIENT::mouseReleaseEvent(QMouseEvent* event) {
         ui.label_release->setText("Mouse Release R: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
     }
 }
-void CLIENT::mouseDoubleClickEvent(QMouseEvent* event) {
+void Client::mouseDoubleClickEvent(QMouseEvent* event) {
     QPoint pos = QCursor::pos();
     if (event->button() == Qt::LeftButton) {
         ui.label_double_click->setText("Mouse Double Click L: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));

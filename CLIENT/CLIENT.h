@@ -14,12 +14,12 @@
 #define KEY_UP 8
 static int x = 1;
 
-class CLIENT : public QMainWindow
+class Client : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    CLIENT(QWidget *parent = nullptr);
+    Client(QWidget *parent = nullptr);
     // void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
@@ -27,7 +27,7 @@ public:
     void keyPressEvent(QKeyEvent* event);
    // void keyReleaseEvent(QKeyEvent* event);
     Socket sk;
-    ~CLIENT();
+    ~Client();
 private slots:
     void updateMousePosition();
 private:
