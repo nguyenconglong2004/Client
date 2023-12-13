@@ -127,16 +127,6 @@ void CLIENT::mousePressEvent(QMouseEvent* event)
     if (event->button() == Qt::LeftButton) {
         sk.send_Event(1, pos.x(), pos.y());
         ui.label_press->setText("Mouse Press L: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
-        //INPUT keyInput;
-        //keyInput.type = INPUT_KEYBOARD;
-        //keyInput.ki.time = 0;
-        //keyInput.ki.dwExtraInfo = 0;
-        //keyInput.ki.wVk = 0x42;
-        //SendInput(0, &keyInput, sizeof(keyInput));
-        //keyInput.ki.dwFlags = KEYEVENTF_KEYUP;
-        //SendInput(0, &keyInput, sizeof(keyInput));
-        //keybd_event(0x42, 0, 0, 0);
-
     }
     if (event->button() == Qt::RightButton) {
         sk.send_Event(2, pos.x(), pos.y());
@@ -164,5 +154,4 @@ void CLIENT::mouseDoubleClickEvent(QMouseEvent* event) {
         ui.label_double_click->setText("Mouse Double Click R: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
         sk.send_Event(6, pos.x(), pos.y());
     }
-    //ui.label_double_click->setText("Mouse Double Click: X: " + QString::number(pos.x()) + " Y: " + QString::number(pos.y()));
 }
